@@ -1,26 +1,17 @@
-import classes from './VacancyCard.module.css';
-
-export type Vacancy = {
-  id: number;
-  company_name: string;
-  name: string;
-  city: string;
-  salary: string;
-  space: "office" | "remote" | "hybrid"
-};
+import type { Vacancy } from '../../features/vacanciesSlice';
 
 type VacancyCardProps = {
   vacancy: Vacancy;
 };
 
-function VacancyCard({ vacancy }: VacancyCardProps) {
-
+export const VacancyCard = ({ vacancy }: VacancyCardProps) => {
   return (
-    <>
-    <p>Карточка вакансии</p>
-    {console.log(vacancy)}
-    </>
+    <div>
+      <h3>{vacancy.name}</h3>
+      <p>{vacancy.company_name}</p>
+      <p>{vacancy.city}</p>
+      <p>{vacancy.salary} ₽</p>
+      <p>{vacancy.short_description}</p>
+    </div>
   );
-}
-
-export default VacancyCard;
+};

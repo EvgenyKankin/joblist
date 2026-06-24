@@ -1,38 +1,96 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import type {Vacancy} from '../components/VacancyCard/VacancyCard'
 import type { RootState } from './store';
 
+export type Vacancy = {
+  id: number;
+  company_name: string;
+  name: string;
+  city: string;
+  salary: string;
+  published_at: string;
+  short_description: string;
+  space: string;
+  skills: string;
+  experience: string;
+};
+
+type Pagination = {
+  currentPage: number;
+  totalPages: number;
+  totalItems: number;
+  itemsPerPage: number;
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+};
+
+type JobsResponse = {
+  success: boolean;
+  pagination: Pagination;
+  jobs: Vacancy[];
+};
+
 type VacanciesState = {
-  vacancys: Vacancy[];
+  vacancies: Vacancy[];
+  pagination: Pagination | null;
   isLoading: boolean;
   error: string | null;
 };
 
+type FetchVacanciesParams = {
+  page: number;
+  skills: string[];
+  search: string;
+  city: string;
+};
+
 const initialState: VacanciesState = {
-  vacancys: [],
+  vacancies: [],
+  pagination: null,
   isLoading: false,
   error: null,
 };
 
-export const selectVacancysState = (state: RootState) => state.vacancies;
-
 export const fetchVacancies = createAsyncThunk<
-  Vacancy[],
-  void,
+  JobsResponse,
+  FetchVacanciesParams,
   { rejectValue: string }
->('vacancies/fetchVacancies', async (_, { rejectWithValue }) => {
-  try {
-    const response = await fetch('https://kata-jobs.onrender.com/api/jobs');
+>(
+  'vacancies/fetchVacancies',
+  async (
+    { page, skills, search, city },
+    { rejectWithValue }
+  ) => {
+    try {
+      const params = new URLSearchParams();
 
-    if (!response.ok) {
-      return rejectWithValue('Ошибка загрузки вакансий');
+      params.set('page', String(page));
+
+      if (search.trim()) {
+        params.set('search', search.trim());
+      }
+
+      if (skills.length > 0) {
+        params.set('skills', skills.join(','));
+      }
+
+      if (city !== 'Все города') {
+        params.set('city', city);
+      }
+
+      const response = await fetch(
+        `https://kata-jobs.onrender.com/api/jobs?${params.toString()}`
+      );
+
+      if (!response.ok) {
+        return rejectWithValue('Ошибка загрузки вакансий');
+      }
+
+      return await response.json();
+    } catch {
+      return rejectWithValue('Ошибка сети');
     }
-
-    return await response.json();
-  } catch {
-    return rejectWithValue('Ошибка сети');
   }
-});
+);
 
 const vacanciesSlice = createSlice({
   name: 'vacancies',
@@ -46,7 +104,8 @@ const vacanciesSlice = createSlice({
       })
       .addCase(fetchVacancies.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.vacancys = action.payload;
+        state.vacancies = action.payload.jobs;
+        state.pagination = action.payload.pagination;
       })
       .addCase(fetchVacancies.rejected, (state, action) => {
         state.isLoading = false;
@@ -54,5 +113,7 @@ const vacanciesSlice = createSlice({
       });
   },
 });
+
+export const selectVacanciesState = (state: RootState) => state.vacancies;
 
 export default vacanciesSlice.reducer;
