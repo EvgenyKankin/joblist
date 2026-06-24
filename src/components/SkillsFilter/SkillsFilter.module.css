@@ -41,4 +41,7 @@
 .skillsContainer {
     margin-top: 16px;
     font-family: 'Open Sans';
+    gap:8px;
+    display:flex;
+    flex-wrap: wrap;
 }

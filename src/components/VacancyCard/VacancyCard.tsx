@@ -11,7 +11,7 @@ export const VacancyCard = ({ vacancy }: VacancyCardProps) => {
       <p className={classes.name}>{vacancy.name}</p>
       
       <div className={classes.salary}>
-        <p className={classes.cost}>{vacancy.salary} ₽</p> 
+        <p className={classes.cost}>{Number(vacancy.salary).toLocaleString('ru-RU')} ₽</p>
         <p className={classes.expirience}>{vacancy.experience}</p>
       </div>
       
@@ -22,7 +22,7 @@ export const VacancyCard = ({ vacancy }: VacancyCardProps) => {
         {(vacancy.space==="hybrid") && (<div className={classes.hybridBadge}></div>)}
         {(vacancy.space==="office") && (<div className={classes.officeBadge}></div>)}
       </div>
-      
+
       <p className={classes.city}>{vacancy.city}</p>
       
       <div className={classes.buttonContainer}>
