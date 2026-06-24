@@ -89,29 +89,30 @@ export const JobList = () => {
                     </div>
                 </div>
 
-                <div className={classes.card}>
+                <div className={classes.cardContainer}>
                     {vacancies.map((vacancy) => (
                         <VacancyCard
                             key={vacancy.id}
                             vacancy={vacancy}
                         />
                     ))}
-                
-                {pagination && (
-                    <Pagination
-                        withEdges
-                        value={page}
-                        onChange={setPage}
-                        total={pagination.totalPages}
-                        siblings={1}
-                        boundaries={1}
-                        classNames={{
-                            root: styles.root,
-                            control: styles.control,
-                            dots: styles.dots,
-                        }}
-                    />
-                )}
+                    <div className={classes.paginationWrapper}>
+                        {pagination && (
+                            <Pagination
+                                withEdges
+                                value={page}
+                                onChange={setPage}
+                                total={pagination.totalPages}
+                                siblings={1}
+                                boundaries={1}
+                                classNames={{
+                                    root: styles.root,
+                                    control: styles.control,
+                                    dots: styles.dots,
+                                }}
+                            />
+                        )}
+                    </div>
                 </div>
             </div>
         </div>

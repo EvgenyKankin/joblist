@@ -1,0 +1,79 @@
+.cardContainer {
+    background-color: white;
+    margin-bottom:16px;
+    width: 690px;
+    height: 248px;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.remoteBadge {
+    background-image: url(../../assets/remoteBadge.svg);
+    width:105px;
+    height:16px;
+}
+
+.hybridBadge {
+    background-image: url(../../assets/hybridBadge.svg);
+    width:50px;
+    height:16px;
+}
+
+.officeBadge {
+    background-image: url(../../assets/officeBadge.svg);
+    width:41px;
+    height:16px;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 16px;
+    margin-top:16px;
+}
+
+.moreButton {
+    background-image: url(../../assets/moreButton.svg);
+    width:172px;
+    height:36px;
+}
+
+.feedbackButton {
+    background-image: url(../../assets/feedbackButton.svg);
+    width:131px;
+    height:36px;
+}
+
+.name {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: rgba(54, 79, 199, 1);
+}
+
+.salary {
+    display: flex;
+    margin-top:16px;
+}
+
+.cost {
+
+}
+
+.expirience {
+
+}
+
+.companyName {
+    margin-top:16px;
+}
+
+.badge {
+    margin-top:16px;
+}
+
+.city {
+    margin-top:16px;
+}

@@ -97,3 +97,14 @@
     gap: 16px;
     justify-self: end;
 }
+
+.paginationWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.cardContainer {
+    width:690px;
+}
