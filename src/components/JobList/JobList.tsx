@@ -78,12 +78,8 @@ export const JobList = () => {
                             onChange={(value) => {setCity(value ?? 'Все города'); setPage(1);}}
                             data={['Все города', 'Москва', 'Санкт-Петербург',]}
                             styles={{
-                                input: {
-                                color: 'rgba(15, 15, 16, 0.3)',
-                                },
-                                option: {
-                                color: '#0f0f10',
-                                },
+                                input: {color: 'rgba(15, 15, 16, 0.3)',},
+                                option: {color: '#0f0f10',},
                             }}
                         />
                     </div>
