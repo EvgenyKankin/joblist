@@ -1,4 +1,5 @@
 import './App.css'
+import Header from './components/Header/Header'
 import JobList from './components/JobList/JobList'
 import './reset.css'
 
@@ -6,12 +7,7 @@ function App() {
 
   return (
     <>
-      <header>
-
-      </header>
-      <div className="sideMenu">
-
-      </div>
+      <Header />
       <JobList />
     </>
   )

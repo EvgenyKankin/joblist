@@ -1,0 +1,44 @@
+.inputContainer {
+    display: flex;
+    gap:16px;
+    align-items: center;
+}
+
+.title {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: rgba(33, 37, 41, 1);
+    margin-bottom: 8px;
+}
+
+.actionIcon {
+    background-image: url("../../assets/actionIcon.svg");
+    width: 34px;
+    height: 30px;
+    align-self: center;
+}
+
+.input {
+    width: 227px;
+    height: 30px;
+    padding-left:8px;
+    font-family: 'Open Sans';
+    border: 1px solid lightgray;
+    border-radius:8px;
+    font-family: Open Sans;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 12px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    color: rgba(15, 15, 16, 0.3);
+}
+
+.skillsContainer {
+    margin-top: 16px;
+    font-family: 'Open Sans';
+}

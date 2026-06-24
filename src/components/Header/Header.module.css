@@ -1,0 +1,31 @@
+.header {
+    width: auto;
+    height: 60px;
+    background-color: white;
+    padding-left: 16px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:10px;
+}
+
+.logo {
+    background-image: url("../../assets/hhlogo.svg");
+    width: 116px;
+    height: 30px;
+    align-self: center;
+}
+
+.vacanciesButton {
+    background-image: url("../../assets/vacanciesButton.svg");
+    width: 100px;
+    height: 22px;
+    justify-self: end;
+    align-self: center;
+}
+
+.aboutButton {
+    background-image: url("../../assets/aboutButton.svg");
+    width: 88px;
+    height: 24px;
+    align-self: center;
+}

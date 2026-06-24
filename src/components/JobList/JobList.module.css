@@ -1,3 +1,99 @@
-.cardContainer {
-    color:black;
+.titleContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #F6F6F7 ;
+    height: 114px;
+}
+
+.searchInput {
+    display:flex;
+    gap:10px;
+    align-self: center;
+}
+
+.textInput {
+    width: 403px;
+    height: 42px;
+}
+
+.title {
+    width: 370px;
+    height: 66px;
+    justify-self: center;
+    align-self: center;
+}
+
+.listTitle {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 26px;
+    line-height: 135%;
+    letter-spacing: 0%;
+}
+
+.aboutTitle {
+    font-family: 'Open Sans';
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 20px;
+    line-height: 135%;
+    letter-spacing: 0%;
+    color: rgba(15, 15, 16, 0.5);
+}
+
+.decorLine {
+    height: 1px;
+    width: auto;
+    background-color: rgba(15, 15, 16, 0.2);
+}
+
+.wrapper {
+    display:grid;
+    grid-template-columns: 500px 1fr;
+    grid-template-rows: 1fr;
+    gap: 16px;
+    background-color: #F6F6F7;
+    padding-top:32px;
+}
+
+.skillsBar {
+    width: 317px;
+    justify-self: end;
+    background-color: white;
+    height:206px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 16px;
+    padding-left: 16px;
+}
+
+.cityBar {
+    width: 317px;
+    justify-self: end;
+    flex-direction: column;
+    background-color: white;
+    height:84px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Open Sans';
+    color: rgba(15, 15, 16, 0.3);
+}
+
+.select {
+    width: 269px;
+    margin-left:auto;
+    margin-right: auto;
+    color: rgba(15, 15, 16, 0.3);
+}
+
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-self: end;
 }
