@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from '../../features/hooks';
 const initialSkills = ['JavaScript', 'React', 'Redux', 'Python'];
 
 export const JobList = () => {
+    console.log('JobList render');
     const dispatch = useAppDispatch();
     const { vacancies, pagination, isLoading, error } = useAppSelector(selectVacanciesState);
     const [page, setPage] = useState(1);
