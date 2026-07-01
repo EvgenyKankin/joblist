@@ -1,4 +1,3 @@
-import type { Vacancy } from '../../features/vacanciesSlice';
 import classes from './VacancyCard.module.css'
 
 type VacancyCardProps = {
