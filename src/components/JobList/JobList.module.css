@@ -109,3 +109,20 @@
 .cardContainer {
     width:690px;
 }
+
+.joblistContainer {
+  position: relative;
+}
+
+.loaderOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+}
