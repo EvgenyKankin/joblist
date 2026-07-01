@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Loader } from '@mantine/core';
 import { VacancyCard } from '../../components/VacancyCard/VacancyCard';
+import classes from './VacancyPage.module.css';
 
 type VacancyDetails = Vacancy & {
   description: string;
@@ -41,23 +43,33 @@ export const VacancyPage = () => {
     fetchVacancy();
   }, [id]);
 
-  if (isLoading) return <p>Загрузка...</p>;
   if (error) return <p>{error}</p>;
-  if (!vacancy) return <p>Вакансия не найдена</p>;
 
   return (
-    <div>
-      <VacancyCard vacancy={vacancy} />
+    <div className={classes.wrapper}>
+      {isLoading && (
+        <div className={classes.loaderOverlay}>
+          <Loader size="lg" />
+        </div>
+      )}
 
-      <section>
-        <h2>Описание вакансии</h2>
-        <p>{vacancy.description}</p>
-      </section>
+      {vacancy && (
+        <>
+          <VacancyCard vacancy={vacancy} />
 
-      <section>
-        <h2>О компании</h2>
-        <p>{vacancy.about_company}</p>
-      </section>
+          <section>
+            <h2>Описание вакансии</h2>
+            <p>{vacancy.description}</p>
+          </section>
+
+          <section>
+            <h2>О компании</h2>
+            <p>{vacancy.about_company}</p>
+          </section>
+        </>
+      )}
+
+      {!isLoading && !vacancy && <p>Вакансия не найдена</p>}
     </div>
   );
 };
