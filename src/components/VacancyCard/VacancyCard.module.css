@@ -7,6 +7,11 @@
     padding: 16px;
 }
 
+.compact {
+    height: 196px;
+    width: 658px;
+}
+
 .remoteBadge {
     background-image: url(../../assets/remoteBadge.svg);
     width:105px;

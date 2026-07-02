@@ -32,7 +32,8 @@ export const VacancyPage = () => {
         }
 
         const data = await response.json();
-        setVacancy(data);
+        console.log(data);
+        setVacancy(data.job);
       } catch {
         setError('Не удалось загрузить вакансию');
       } finally {
@@ -55,17 +56,23 @@ export const VacancyPage = () => {
 
       {vacancy && (
         <>
-          <VacancyCard vacancy={vacancy} />
+          <VacancyCard
+            vacancy={vacancy}
+            compact
+            showButtons={false}
+          />
 
-          <section>
-            <h2>Описание вакансии</h2>
-            <p>{vacancy.description}</p>
-          </section>
+          <div className={classes.aboutContainer}>
+            <div className={classes.companyContainer}>
+              <h2 className={classes.companyTitle}>Компания</h2>
+              <p className={classes.companyText}>{vacancy.about_company}</p>
+            </div>
 
-          <section>
-            <h2>О компании</h2>
-            <p>{vacancy.about_company}</p>
-          </section>
+            <div className={classes.vacancyContainer}>
+              <h3 className={classes.vacancyTitle}>О Вакансии</h3>
+              <p className={classes.vacancyText}>{vacancy.description}</p>
+            </div>
+          </div> 
         </>
       )}
 

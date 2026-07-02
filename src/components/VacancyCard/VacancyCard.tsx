@@ -3,13 +3,16 @@ import classes from './VacancyCard.module.css';
 
 type VacancyCardProps = {
   vacancy: Vacancy;
+  compact?: boolean;
+  showButtons?: boolean;
 };
 
-export const VacancyCard = ({ vacancy }: VacancyCardProps) => {
+export const VacancyCard = ({ vacancy, compact=false, showButtons=true }: VacancyCardProps) => {
+  //console.log(vacancy);
   const navigate = useNavigate();
 
   return (
-    <div className={classes.cardContainer}>
+    <div className={`${classes.cardContainer} ${compact ? classes.compact : ''}`}>
       <p className={classes.name}>{vacancy.name}</p>
 
       <div className={classes.salary}>
@@ -37,16 +40,18 @@ export const VacancyCard = ({ vacancy }: VacancyCardProps) => {
 
       <p className={classes.city}>{vacancy.city}</p>
 
-      <div className={classes.buttonContainer}>
-        <button
-          className={classes.moreButton}
-          onClick={() => navigate(`/vacancies/${vacancy.id}`)}
-        >
-        </button>
+      {showButtons && (
+        <div className={classes.buttonContainer}>
+          <button
+            className={classes.moreButton}
+            onClick={() => navigate(`/vacancies/${vacancy.id}`)}
+          >
+          </button>
 
-        <button className={classes.feedbackButton}>
-        </button>
-      </div>
+          <button className={classes.feedbackButton}>
+          </button>
+        </div>
+      )}
     </div>
   );
 };
