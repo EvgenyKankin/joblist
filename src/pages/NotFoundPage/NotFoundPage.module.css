@@ -1,0 +1,58 @@
+.homeButton {
+    background-image: url('../../assets/homeButton.svg');
+    width:135px;
+    height:42px;
+}
+
+.notfoundWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notfoundContainer {
+    width: 707px;
+    height: 556px;
+    margin: 70px auto;
+    background-color: white;
+    border-radius: 16px;
+    padding:32px;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: #F6F6F7;
+}
+
+.title {
+    width: 460px;
+}
+.notfoundTitle {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 34px;
+    line-height: 130%;
+    letter-spacing: 0%;
+}
+
+.notfoundText {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    margin-top:16px;
+}
+
+.catImg {
+    width:640px;
+    height:336px;
+}
+
+.imgContainer {
+    margin-top: 16px;
+    align-self: center;
+}
