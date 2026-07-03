@@ -40,6 +40,7 @@ export const fetchVacancies = createAsyncThunk<
 
       const response = await fetch(url);
 
+
       if (!response.ok) {
         return rejectWithValue('Ошибка загрузки вакансий');
       }
