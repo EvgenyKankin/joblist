@@ -35,9 +35,10 @@ export const fetchVacancies = createAsyncThunk<
         params.set('city', city);
       }
 
-      const response = await fetch(
-        `https://kata-jobs.onrender.com/api/jobs?${params.toString()}`
-      );
+      const url = `https://kata-jobs.onrender.com/api/jobs?${params.toString()}`;
+      console.log(url);
+
+      const response = await fetch(url);
 
       if (!response.ok) {
         return rejectWithValue('Ошибка загрузки вакансий');

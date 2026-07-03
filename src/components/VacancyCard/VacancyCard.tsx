@@ -44,7 +44,7 @@ export const VacancyCard = ({ vacancy, compact=false, showButtons=true }: Vacanc
         <div className={classes.buttonContainer}>
           <button
             className={classes.moreButton}
-            onClick={() => navigate(`/vacancies/${vacancy.id}`)}
+            onClick={() => navigate(`/vacancy/${vacancy.id}`)}
           >
           </button>
 
