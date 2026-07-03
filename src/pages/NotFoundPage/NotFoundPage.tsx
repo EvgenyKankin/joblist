@@ -1,5 +1,6 @@
 import classes from './NotFoundPage.module.css'
 import { useNavigate } from 'react-router-dom';
+import catImg from '../../assets/cat.png';
 
 function NotFoundPage() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ function NotFoundPage() {
         ></button>
       </div>
       <div className={classes.imgContainer}>
-        <img className={classes.catImg} alt='cat' src='src\assets\cat.png' />
+        <img className={classes.catImg} alt='cat' src={catImg} />
       </div>
     </div>
   );
