@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { Loader } from '@mantine/core';
 import { VacancyCard } from '../../components/VacancyCard/VacancyCard';
 import classes from './VacancyPage.module.css';
@@ -14,6 +14,7 @@ export const VacancyPage = () => {
   const [vacancy, setVacancy] = useState<VacancyDetails | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [isNotFound, setIsNotFound] = useState(false);
 
   useEffect(() => {
     if (!id) return;
@@ -26,6 +27,11 @@ export const VacancyPage = () => {
         const response = await fetch(
           `https://kata-jobs.onrender.com/api/jobs/${id}`
         );
+
+        if (response.status === 404) {
+        setIsNotFound(true);
+        return;
+        }
 
         if (!response.ok) {
           throw new Error('Ошибка загрузки вакансии');
@@ -43,6 +49,10 @@ export const VacancyPage = () => {
 
     fetchVacancy();
   }, [id]);
+
+  if (isNotFound) {
+  return <Navigate to="/404" replace />;
+  }
 
   if (error) return <p>{error}</p>;
 

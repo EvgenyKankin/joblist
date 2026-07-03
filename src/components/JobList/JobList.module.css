@@ -54,7 +54,7 @@
     grid-template-rows: 1fr;
     gap: 16px;
     background-color: #F6F6F7;
-    padding-top:32px;
+    
 }
 
 .skillsBar {
@@ -69,27 +69,20 @@
     padding-top: 16px;
     padding-left: 16px;
     padding-right: 16px;
+    margin-top:85px;
 }
 
 .cityBar {
-    width: 317px;
-    justify-self: end;
+    width: 235px;
+    justify-self: start;
     flex-direction: column;
-    background-color: white;
     height:84px;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-family: 'Open Sans';
-    color: rgba(15, 15, 16, 0.3);
-}
-
-.select {
-    width: 269px;
-    margin-left:auto;
-    margin-right: auto;
-    color: rgba(15, 15, 16, 0.3);
+    color: black;
 }
 
 .sideBar {
@@ -118,11 +111,9 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(6px);
 }

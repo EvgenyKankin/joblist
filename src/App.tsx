@@ -13,14 +13,12 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Navigate to="/vacancies/moscow" replace />} />
-
         <Route path="/vacancies" element={<Navigate to="/vacancies/moscow" replace />} />
         <Route path="/vacancies/moscow" element={<JobList />} />
         <Route path="/vacancies/petersburg" element={<JobList />} />
-
         <Route path="/vacancy/:id" element={<VacancyPage />} />
-
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/404" element={<NotFoundPage />} />
       </Routes>
     </>
   );
