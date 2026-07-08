@@ -1,12 +1,6 @@
-import { NavLink, Outlet } from "react-router-dom";
-import type { NavLinkProps } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import classes from './Layout.module.css'
-
-const setVacanciesLinkActive: NavLinkProps["className"] = ({ isActive }) =>
-  isActive ? classes.vacanciesButtonActive : classes.vacanciesButton;
-
-const setAboutLinkActive: NavLinkProps["className"] = ({ isActive }) =>
-  isActive ? classes.aboutButtonActive : classes.aboutButton;
+import CustomLink from "../CustomLink/CustomLink";
 
 function Layout () {
     return (
@@ -14,9 +8,17 @@ function Layout () {
             <header className={classes.header}>
                 <div className={classes.logo}></div>
 
-                <NavLink to='/vacancies' className={setVacanciesLinkActive}/>
+                <CustomLink
+                    to='/vacancies'
+                    className={classes.vacanciesButton}
+                    activeClassName={classes.vacanciesButtonActive}
+                />
 
-                <NavLink to='/about'  className={setAboutLinkActive}/>
+                <CustomLink
+                    to='/about' 
+                    className={classes.aboutButton}
+                    activeClassName={classes.aboutButtonActive}
+                />
             </header>
 
             <Outlet />
