@@ -17,6 +17,14 @@
 
 .vacanciesButton {
     background-image: url("../../assets/vacanciesButton.svg");
+    width: 86px;
+    height: 22px;
+    justify-self: end;
+    align-self: center;
+}
+
+.vacanciesButtonActive{
+    background-image: url("../../assets/vacanciesButtonActive.svg");
     width: 100px;
     height: 22px;
     justify-self: end;
@@ -26,6 +34,13 @@
 .aboutButton {
     background-image: url("../../assets/aboutButton.svg");
     width: 88px;
+    height: 24px;
+    align-self: center;
+}
+
+.aboutButtonActive {
+    background-image: url("../../assets/aboutButtonActive.svg");
+    width: 98px;
     height: 24px;
     align-self: center;
 }

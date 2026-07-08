@@ -1,0 +1,43 @@
+.aboutWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aboutContainer {
+    width: 658px;
+    height: 143px;
+    margin: 16px auto;
+    background-color: white;
+    border-radius: 16px;
+    padding:16px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+body {
+    background-color: #F6F6F7;
+}
+
+.aboutTitle {
+    width: 658px;
+}
+.name {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 26px;
+    line-height: 135%;
+    letter-spacing: 0%;
+}
+
+.aboutText {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    margin-top:16px;
+}
