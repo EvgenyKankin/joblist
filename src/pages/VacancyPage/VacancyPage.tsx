@@ -1,57 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { Loader } from '@mantine/core';
 import { VacancyCard } from '../../components/VacancyCard/VacancyCard';
+import { useAppDispatch, useAppSelector } from '../../features/hooks';
+import { fetchVacancy } from '../../features/vacancySlice';
 import classes from './VacancyPage.module.css';
-
-type VacancyDetails = Vacancy & {
-  description: string;
-  about_company: string;
-};
 
 export const VacancyPage = () => {
   const { id } = useParams();
-  const [vacancy, setVacancy] = useState<VacancyDetails | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [isNotFound, setIsNotFound] = useState(false);
+  const dispatch = useAppDispatch();
+
+  const { vacancy, isLoading, error, isNotFound } = useAppSelector(
+    (state) => state.vacancy
+  );
 
   useEffect(() => {
-    if (!id) return;
-
-    const fetchVacancy = async () => {
-      try {
-        setIsLoading(true);
-        setError('');
-
-        const response = await fetch(
-          `https://kata-jobs.onrender.com/api/jobs/${id}`
-        );
-
-        if (response.status === 404) {
-        setIsNotFound(true);
-        return;
-        }
-
-        if (!response.ok) {
-          throw new Error('Ошибка загрузки вакансии');
-        }
-
-        const data = await response.json();
-        console.log(data);
-        setVacancy(data.job);
-      } catch {
-        setError('Не удалось загрузить вакансию');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchVacancy();
-  }, [id]);
+    if (id) {
+      dispatch(fetchVacancy(id));
+    }
+  }, [id, dispatch]);
 
   if (isNotFound) {
-  return <Navigate to="/404" replace />;
+    return <Navigate to="/404" replace />;
   }
 
   if (error) return <p>{error}</p>;
@@ -75,14 +45,18 @@ export const VacancyPage = () => {
           <div className={classes.aboutContainer}>
             <div className={classes.companyContainer}>
               <h2 className={classes.companyTitle}>Компания</h2>
-              <p className={classes.companyText}>{vacancy.about_company}</p>
+              <p className={classes.companyText}>
+                {vacancy.about_company}
+              </p>
             </div>
 
             <div className={classes.vacancyContainer}>
               <h3 className={classes.vacancyTitle}>О Вакансии</h3>
-              <p className={classes.vacancyText}>{vacancy.description}</p>
+              <p className={classes.vacancyText}>
+                {vacancy.description}
+              </p>
             </div>
-          </div> 
+          </div>
         </>
       )}
 

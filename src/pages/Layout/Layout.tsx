@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import classes from './Layout.module.css'
-import CustomLink from "../CustomLink/CustomLink";
+import CustomLink from "../../components/CustomLink/CustomLink";
 
 function Layout () {
     return (

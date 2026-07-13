@@ -3,8 +3,8 @@ import styles from './VacanciesPagination.module.scss';
 import { useEffect, useState, useMemo } from 'react';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import { Pagination, Button, TextInput, Tabs, Loader } from '@mantine/core';
-import { SkillsFilter } from '../SkillsFilter/SkillsFilter';
-import { VacancyCard } from '../VacancyCard/VacancyCard';
+import { SkillsFilter } from '../../components/SkillsFilter/SkillsFilter';
+import { VacancyCard } from '../../components/VacancyCard/VacancyCard';
 import { fetchVacancies, selectVacanciesState } from '../../features/vacanciesSlice';
 import { useAppDispatch, useAppSelector } from '../../features/hooks';
 

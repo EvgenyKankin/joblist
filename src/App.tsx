@@ -1,10 +1,10 @@
 import './App.css';
 import './reset.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import JobList from './components/JobList/JobList';
+import JobList from './pages/JobList/JobList';
 import { VacancyPage } from './pages/VacancyPage/VacancyPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import Layout from './components/Layout/Layout';
+import Layout from './pages/Layout/Layout';
 import AboutPage from './pages/AboutPage/AboutPage';
 
 function App() {

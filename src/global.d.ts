@@ -11,6 +11,15 @@ type Vacancy = {
   experience: string;
 };
 
+type VacancyDetails = Vacancy & {
+    description: string;
+    about_company: string;
+    published_at: string;
+    short_description: string;
+    space: string;
+    skills: string[];
+};
+
 type Pagination = {
   currentPage: number;
   totalPages: number;

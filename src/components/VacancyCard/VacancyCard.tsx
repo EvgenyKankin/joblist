@@ -8,7 +8,6 @@ type VacancyCardProps = {
 };
 
 export const VacancyCard = ({ vacancy, compact=false, showButtons=true }: VacancyCardProps) => {
-  //console.log(vacancy);
   const navigate = useNavigate();
 
   return (
